@@ -1,18 +1,4 @@
-// const cursorDot = document.querySelector(".cursor-dot");
-// const cursorOutline = document.querySelector(".cursor-outline");
-// window.addEventListener('mousemove', (e)=> {
-//   const posX = e.clientX;
-//   const posY = e.clientY;
-//   cursorDot.style.left =`${posX}px`;
-//   cursorDot.style.top =`${posY}px`;
-//   cursorOutline.style.left =`${posX}px`;
-//   cursorOutline.style.top =`${posY}px`
-
-//   cursorOutline.animate({
-//     left: `${posX}px`,
-//     top: `${posY}px`,
-//   }, {duration: 500, fill: "forwards"});
-// });
+// cursor effect
 
 var mainCursor = document.querySelector('.main-cursor'),
  mouseX = 0, 
@@ -35,10 +21,12 @@ window.addEventListener("mousemove", function (e) {
   mouseY = e.clientY
 })
 
-logo = document.querySelector('.logo') 
-tag = document.querySelector('.main-container h3')
-auto = document.querySelector('.main-container h1')
-buttons = document.querySelectorAll('.main-btns button')
+const logo = document.querySelector('.logo') 
+const tag = document.querySelector('.main-container h3')
+const auto = document.querySelector('.main-container h1')
+const buttons = document.querySelectorAll('.main-btns button')
+const teamHead = document.querySelector('.team-section .head')
+const infoText = document.getElementById('info-text')
 
 logo.addEventListener("mousemove", () => {
   mainCursor.classList.add('grow-small')
@@ -58,7 +46,6 @@ tag.addEventListener("mouseleave", () => {
 
 auto.addEventListener("mousemove", () => {
   mainCursor.classList.add('grow-big')
-  
 })
 auto.addEventListener("mouseleave", () => {
   mainCursor.classList.remove('grow-big')
@@ -72,3 +59,64 @@ buttons.forEach(btn => {
     mainCursor.classList.remove('grow-mid')
   })
 });
+
+teamHead.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-mid')
+})
+teamHead.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-mid')
+})
+
+infoText.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-mid')
+})
+infoText.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-mid')
+})
+
+
+// info display in team section
+const positionText = document.getElementById('position-text')
+
+document.querySelectorAll('.team-member').forEach(member => {
+  member.addEventListener('mouseenter', () => {
+    mainCursor.classList.add('grow-none');
+    const info = member.getAttribute('data-info')
+    const position = member.getAttribute('data-position')
+    gsap.to(infoText, {
+      duration: 0.5,
+      opacity: 0,
+      onComplete: () => {
+        infoText.textContent = info
+        positionText.textContent = position
+        gsap.to(infoText, {
+          duration: 0.5,
+          opacity: 1
+        })
+        gsap.to(positionText, {
+          duration: 0.5,
+          opacity: 1
+        })
+      }
+    })
+  })
+  member.addEventListener('mouseleave', () => {
+    mainCursor.classList.remove('grow-none');
+    gsap.to(infoText, {
+      duration: 0.5,
+      opacity: 0,
+      onComplete: () => {
+        infoText.textContent = 'General 2000 Communications'
+        positionText.textContent = ""
+        gsap.to(infoText, {
+          duration: 0.5,
+          opacity: 1
+        })
+        gsap.to(positionText, {
+          duration: 0.5,
+          opacity: 1
+        })
+      }
+    })
+  })
+})
