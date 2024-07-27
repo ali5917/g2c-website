@@ -27,6 +27,9 @@ const auto = document.querySelector('.main-container h1')
 const buttons = document.querySelectorAll('.main-btns button')
 const teamHead = document.querySelector('.team-section .head')
 const infoText = document.getElementById('info-text')
+const posText = document.getElementById('position-text')
+const clientText = document.querySelector('.clients-section p')
+const logos = document.querySelector('.logos')
 
 logo.addEventListener("mousemove", () => {
   mainCursor.classList.add('grow-small')
@@ -74,6 +77,27 @@ infoText.addEventListener("mouseleave", () => {
   mainCursor.classList.remove('grow-mid')
 })
 
+posText.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-small')
+})
+posText.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-small')
+})
+
+clientText.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-mid')
+})
+clientText.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-mid')
+})
+
+logos.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-none')
+})
+logos.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-none')
+})
+
 
 // info display in team section
 const positionText = document.getElementById('position-text')
@@ -84,17 +108,17 @@ document.querySelectorAll('.team-member').forEach(member => {
     const info = member.getAttribute('data-info')
     const position = member.getAttribute('data-position')
     gsap.to(infoText, {
-      duration: 0.5,
+      duration: 0.2,
       opacity: 0,
       onComplete: () => {
         infoText.textContent = info
         positionText.textContent = position
         gsap.to(infoText, {
-          duration: 0.5,
+          duration: 1,
           opacity: 1
         })
         gsap.to(positionText, {
-          duration: 0.5,
+          duration: 1,
           opacity: 1
         })
       }
@@ -102,21 +126,21 @@ document.querySelectorAll('.team-member').forEach(member => {
   })
   member.addEventListener('mouseleave', () => {
     mainCursor.classList.remove('grow-none');
-    gsap.to(infoText, {
-      duration: 0.5,
-      opacity: 0,
-      onComplete: () => {
-        infoText.textContent = 'General 2000 Communications'
-        positionText.textContent = ""
-        gsap.to(infoText, {
-          duration: 0.5,
-          opacity: 1
-        })
-        gsap.to(positionText, {
-          duration: 0.5,
-          opacity: 1
-        })
-      }
-    })
+    // gsap.to(infoText, {
+    //   duration: 0.2,
+    //   opacity: 0,
+    //   onComplete: () => {
+    //     infoText.textContent = 'General 2000 Communications'
+    //     positionText.textContent = ""
+    //     gsap.to(infoText, {
+    //       duration: 0.5,
+    //       opacity: 1
+    //     })
+    //     gsap.to(positionText, {
+    //       duration: 0.5,
+    //       opacity: 1
+    //     })
+    //   }
+    // })
   })
 })
