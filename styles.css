@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: aliceblue;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  font-size: 20px;
+  /* background-color: red; */
+  font-family: 'Montserrat';
+  font-weight: 400;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: rgb(71, 71, 71);
+}
+
+.main-container {
+  font-family: 'Montserrat';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container h1 {
+  font-size: 90px;
+  letter-spacing: 80%;
+}
+
+.main-container span {
+  color: rgb(31, 0, 0);
+  font-family: 'Forum';
+  font-size: 95px;
+}
+
+.main-container h3 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 15px;
+  transition: all ease 0.3s;
+}
+
+.main-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.main-btns button {
+  font-size: 22px;
+  font-family: 'Montserrat';
+  border: solid 2px black;
+  width: 180px;
+  padding: 8px 0;
+  border-radius: 20px;
+  transition: all ease 0.6s;
+  box-shadow: inset 0 0 0 0 rgb(0, 0, 0);
+}
+
+.main-btns button:hover {
+  box-shadow: inset 180px 0 0 0 rgb(0, 0, 0);
+}
+
+.main-btns button:hover a{
+  color: white;
+}
+
+/* .cursor-dot {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+}
+
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid grey;
+}
+
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+ */
+
+.main-cursor {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  transition: all ease 0.2s;
+  pointer-events: none;
+  transform-origin: center center;
+  z-index: 1000;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+.grow-small, .grow-big, .grow-mid {
+  transform: scale(1.8);
+  background-color: white;
+  border: none;
+  mix-blend-mode: difference;
+}
+
+.grow-big {
+  transform: scale(5);
+}
+
+.grow-mid {
+  transform: scale(2.5);
+}
