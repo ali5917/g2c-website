@@ -30,6 +30,9 @@ const infoText = document.getElementById('info-text')
 const posText = document.getElementById('position-text')
 const clientText = document.querySelector('.clients-section p')
 const logos = document.querySelector('.logos')
+const contactSection = document.getElementById('contact-section')
+const contactHead = document.querySelector('.contact-section .head')
+const contactDetails = document.querySelectorAll('.detail')
 
 logo.addEventListener("mousemove", () => {
   mainCursor.classList.add('grow-small')
@@ -98,6 +101,28 @@ logos.addEventListener("mouseleave", () => {
   mainCursor.classList.remove('grow-none')
 })
 
+contactSection.addEventListener("mousemove", () => {
+  mainCursor.classList.add('color-change')
+})
+contactSection.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('color-change')
+})
+
+contactHead.addEventListener("mousemove", () => {
+  mainCursor.classList.add('grow-mid')
+})
+contactHead.addEventListener("mouseleave", () => {
+  mainCursor.classList.remove('grow-mid')
+})
+
+contactDetails.forEach(detail => {
+  detail.addEventListener('mousemove', () => {
+    mainCursor.classList.add('grow-small')
+  })
+  detail.addEventListener('mouseleave', () => {
+    mainCursor.classList.remove('grow-small')
+  })
+})
 
 // info display in team section
 const positionText = document.getElementById('position-text')
