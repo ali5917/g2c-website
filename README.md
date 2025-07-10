@@ -1,2 +1,2 @@
-# g2c-website
-This is a website for General 2000 Communication, an advertising agency
+# Minimal Website for an Advertising Agency
+This is a website for General 2000 Communication, a Karachi based agency. 
